@@ -1,0 +1,19 @@
+{
+  "name": "fathom",
+  "version": "1.0.0",
+  "description": "Recursive dependency updater for npm",
+  "main": "fathom.js",
+  "type": "module",
+  "engines": {
+    "node": "^10.x"
+  },
+  "scripts": {
+    "update": "node src/fathom.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb": "^18.2.1"
+  }
+}

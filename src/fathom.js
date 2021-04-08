@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { resolve } from 'path';
-import { readdirSync } from 'fs';
-import { execSync } from 'child_process';
+const { resolve } = require('path');
+const { readdirSync } = require('fs');
+const { execSync } = require('child_process');
+const chalk = require('chalk');
 
 const inputPath = process.argv[2];
 const latest = [];
@@ -26,7 +27,7 @@ function getOutdated(fpath) {
 
 function runUpdate(fpath) {
   // return exec(`cd ${fpath} && npm update`);
-  console.log(`Updating dependencies for ${fpath}`);
+  console.log(chalk`Updating dependencies for {blue ${fpath}}`);
 }
 
 function getLatest(packages) {
@@ -50,7 +51,7 @@ function fathom() {
     runUpdate(file);
     getLatest(ar);
   });
-  console.log('There are major versions available. These will require manual updating:');
+  console.log(chalk.red('There are major versions available. These will require manual updating:'));
   console.log(latest);
 }
 
